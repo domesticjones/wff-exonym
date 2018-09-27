@@ -1,0 +1,21 @@
+# Documentation: https://roots.io/trellis/docs/local-development-setup/
+# `wordpress_sites` options: https://roots.io/trellis/docs/wordpress-sites
+# Define accompanying passwords/secrets in group_vars/development/vault.yml
+
+wordpress_sites:
+  wff.dev:
+    site_hosts:
+      - canonical: wff.dev
+        redirects:
+          - www.wff.dev
+    local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
+    site_title: Wildland Firefighter Foundation
+    admin_user: developer
+    admin_email: exonym@domesticjones.com
+    multisite:
+      enabled: false
+    ssl:
+      enabled: true
+      provider: self-signed
+    cache:
+      enabled: false
