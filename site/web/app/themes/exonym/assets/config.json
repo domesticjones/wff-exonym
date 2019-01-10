@@ -17,7 +17,7 @@
     ]
   },
   "publicPath": "/app/themes/exonym",
-  "devUrl": "https://exonym.dev",
+  "devUrl": "https://wff.dev",
   "proxyUrl": "https://localhost:3000",
   "cacheBusting": "[name]_[hash:8]",
   "watch": [

@@ -57,3 +57,19 @@ $roleObject = get_role( 'editor' );
 if (!$roleObject->has_cap('edit_theme_options')) {
   $roleObject->add_cap('edit_theme_options');
 }
+
+// Add Options Pages for the 52 Club
+if(function_exists('acf_add_options_page')) {
+	acf_add_options_page(array(
+		'page_title' 	=> '52 Club Information',
+		'menu_title'	=> 'Club Info',
+		'menu_slug' 	=> '52-club-options',
+		'capability'	=> 'edit_posts'
+	));
+	acf_add_options_page(array(
+		'page_title' 	=> '52 Club Lifetime Memberships',
+		'menu_title'	=> 'Lifetime Memberships',
+		'menu_slug' 	=> '52-club-lifetime',
+		'capability'	=> 'edit_posts'
+	));
+}

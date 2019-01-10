@@ -17,3 +17,4 @@ require_once('functions/admin.php');
 require_once('functions/plugins.php');
 require_once('functions/sanity.php');
 require_once('functions/cpt.php');
+require_once('functions/modules.php');

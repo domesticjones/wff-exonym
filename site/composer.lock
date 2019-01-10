@@ -1,23 +1,23 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b656ae8b9d95ced364b34ce11594fdc4",
+    "content-hash": "c6f9b4c3a9d683519db8200e3873e16d",
     "packages": [
         {
             "name": "composer/installers",
-            "version": "v1.5.0",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "049797d727261bf27f2690430d935067710049c2"
+                "reference": "cfcca6b1b60bc4974324efb5783c13dca6932b5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/049797d727261bf27f2690430d935067710049c2",
-                "reference": "049797d727261bf27f2690430d935067710049c2",
+                "url": "https://api.github.com/repos/composer/installers/zipball/cfcca6b1b60bc4974324efb5783c13dca6932b5b",
+                "reference": "cfcca6b1b60bc4974324efb5783c13dca6932b5b",
                 "shasum": ""
             },
             "require": {
@@ -124,24 +124,24 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2017-12-29T09:13:20+00:00"
+            "time": "2018-08-27T06:10:37+00:00"
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "4.9.7",
+            "version": "5.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "6697a15cdfd60cfdf9f4bf04a4e7637a8d2a5afa"
+                "reference": "516609b5bc19b1dd7cff9f9b4e9d1026363049ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/6697a15cdfd60cfdf9f4bf04a4e7637a8d2a5afa",
-                "reference": "6697a15cdfd60cfdf9f4bf04a4e7637a8d2a5afa",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/516609b5bc19b1dd7cff9f9b4e9d1026363049ce",
+                "reference": "516609b5bc19b1dd7cff9f9b4e9d1026363049ce",
                 "shasum": ""
             },
             "require": {
-                "johnpbloch/wordpress-core": "4.9.7",
+                "johnpbloch/wordpress-core": "5.0.3",
                 "johnpbloch/wordpress-core-installer": "^1.0",
                 "php": ">=5.3.2"
             },
@@ -163,27 +163,27 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2018-07-05T18:12:19+00:00"
+            "time": "2019-01-09T18:42:21+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core",
-            "version": "4.9.7",
+            "version": "5.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress-core.git",
-                "reference": "1116e10f71f8fb811856df212af652c427bc6bd1"
+                "reference": "76c8acab20262adc0eb70d20aace3d36c2f3a16f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/1116e10f71f8fb811856df212af652c427bc6bd1",
-                "reference": "1116e10f71f8fb811856df212af652c427bc6bd1",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/76c8acab20262adc0eb70d20aace3d36c2f3a16f",
+                "reference": "76c8acab20262adc0eb70d20aace3d36c2f3a16f",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
             },
             "provide": {
-                "wordpress/core-implementation": "4.9.7"
+                "wordpress/core-implementation": "5.0.3"
             },
             "type": "wordpress-core",
             "notification-url": "https://packagist.org/downloads/",
@@ -203,20 +203,20 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2018-07-05T18:12:13+00:00"
+            "time": "2019-01-09T18:42:15+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
-            "version": "1.0.0.2",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress-core-installer.git",
-                "reference": "7941acd71725710a789daabe0557429da63e7ac6"
+                "reference": "fd12f5cfe27223b92b0f4bbc097059eb23cc56c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress-core-installer/zipball/7941acd71725710a789daabe0557429da63e7ac6",
-                "reference": "7941acd71725710a789daabe0557429da63e7ac6",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core-installer/zipball/fd12f5cfe27223b92b0f4bbc097059eb23cc56c4",
+                "reference": "fd12f5cfe27223b92b0f4bbc097059eb23cc56c4",
                 "shasum": ""
             },
             "require": {
@@ -240,7 +240,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -252,7 +252,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2018-01-29T14:49:29+00:00"
+            "time": "2018-11-09T20:10:38+00:00"
         },
         {
             "name": "oscarotero/env",
@@ -355,16 +355,16 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v2.5.0",
+            "version": "v2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "6ae3e2e6494bb5e58c2decadafc3de7f1453f70a"
+                "reference": "cfd5dc225767ca154853752abc93aeec040fcf36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/6ae3e2e6494bb5e58c2decadafc3de7f1453f70a",
-                "reference": "6ae3e2e6494bb5e58c2decadafc3de7f1453f70a",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/cfd5dc225767ca154853752abc93aeec040fcf36",
+                "reference": "cfd5dc225767ca154853752abc93aeec040fcf36",
                 "shasum": ""
             },
             "require": {
@@ -401,22 +401,22 @@
                 "env",
                 "environment"
             ],
-            "time": "2018-07-01T10:25:50+00:00"
+            "time": "2018-10-30T17:29:25+00:00"
         }
     ],
     "packages-dev": [
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.3.0",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "d86873af43b4aa9d1f39a3601cc0cfcf02b25266"
+                "reference": "379deb987e26c7cd103a7b387aea178baec96e48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/d86873af43b4aa9d1f39a3601cc0cfcf02b25266",
-                "reference": "d86873af43b4aa9d1f39a3601cc0cfcf02b25266",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/379deb987e26c7cd103a7b387aea178baec96e48",
+                "reference": "379deb987e26c7cd103a7b387aea178baec96e48",
                 "shasum": ""
             },
             "require": {
@@ -454,7 +454,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-06-06T23:58:19+00:00"
+            "time": "2018-12-19T23:57:18+00:00"
         }
     ],
     "aliases": [],

@@ -1,3 +1,5 @@
-<?php get_header(); ?>
-<?php echo asset_path('styles/main.css'); ?>
-<?php get_footer(); ?>
+<?php
+  get_header();
+    echo 'Donate Test: ' . exmod_donate('52_club_lifetime');
+  get_footer();
+?>
