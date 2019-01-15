@@ -33,7 +33,7 @@
               'fallback_cb' => ''									// fallback function (if there is one)
             )); ?>
           </nav>
-          <?php ex_social(); ?>
+          <?php // ex_social(); ?>
 					<a href="#" id="responsive-nav-toggle">
 	          <span class="line"></span>
 	          <span class="line"></span>

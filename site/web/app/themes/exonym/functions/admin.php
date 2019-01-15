@@ -44,14 +44,6 @@ function custom_login_logo() { ?>
 <?php }
 add_action('login_enqueue_scripts', 'custom_login_logo');
 
-// Enable SVG upload in admin
-function wpcontent_svg_mime_type($mimes = array()) {
-  $mimes['svg']  = 'image/svg+xml';
-  $mimes['svgz'] = 'image/svg+xml';
-  return $mimes;
-}
-add_filter('upload_mimes', 'wpcontent_svg_mime_type');
-
 // Allow Editors to edit Menus
 $roleObject = get_role( 'editor' );
 if (!$roleObject->has_cap('edit_theme_options')) {

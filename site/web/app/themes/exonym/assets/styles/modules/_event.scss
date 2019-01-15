@@ -1,0 +1,110 @@
+// Archives
+.events-wrap {
+  @include listStripped(inherit);
+  @include grid(center, stretch, row, wrap);
+
+  .event-single {
+    border: 1px solid $grey;
+    margin: 1%;
+    text-align: center;
+  }
+
+  .event-status {
+    @extend h3;
+
+    width: 100%;
+    background-color: $purple;
+    color: $white;
+    text-align: center;
+    padding: 1rem 0;
+    margin: 0;
+  }
+}
+
+.event-flyer {
+  padding: 1rem;
+  margin: auto 0;
+}
+
+.event-data {
+  margin-top: auto;
+  padding: 1rem;
+
+  h2 {
+    font-size: 1.25em;
+    text-transform: none;
+  }
+
+  h3 {
+    font-size: 1em;
+    font-weight: $font-light;
+  }
+
+  .event-desc {
+    font-size: 0.65rem;
+  }
+}
+
+.event-upcoming {
+  @include grid(center, center, row, wrap);
+
+  width: 48%;
+  font-size: 1.5em;
+
+  .event-flyer {
+    width: 50%;
+  }
+
+  .event-data {
+    width: 50%;
+    margin: auto 0;
+    text-align: left;
+  }
+
+  .event-status {
+    font-size: 1em;
+  }
+}
+
+.event-archive {
+  @include grid(flex-start, center, column);
+
+  width: 23%;
+
+  .event-flyer { width: 100%; }
+  .event-data { width: 100%; }
+
+  .event-status {
+    font-size: 1rem;
+    background-color: $grey;
+  }
+}
+
+@media (max-width: 1024px) {
+  .event-upcoming {
+    width: 98%;
+  }
+
+  .event-archive {
+    width: 48%;
+  }
+}
+
+@media (max-width: 600px) {
+  .event-upcoming {
+    @include grid(flex-start, center, column);
+
+    .event-data {
+      text-align: center;
+    }
+
+    .event-flyer,
+    .event-data {
+      width: 100%;
+    }
+  }
+
+  .event-archive {
+    width: 100%;
+  }
+}

@@ -13,16 +13,23 @@ body {
 }
 
 /**
+  Module Globals
+  ---------------------------------------------------------------------- */
+.module {
+  padding: 4vw;
+}
+
+/**
   Global Link Defaults
   ---------------------------------------------------------------------- */
 a {
   text-decoration: none;
 }
 
-@include linkColor($blue, all);
+@include linkColor($red, all);
 
 /**
-  Wordpress Image ALignment
+  Wordpress Image Alignment
   ---------------------------------------------------------------------- */
 .aligncenter {
   margin: 1em auto;
@@ -41,7 +48,7 @@ a {
   ---------------------------------------------------------------------- */
 @media (min-width: 1025px) {
   .wrap {
-    width: 1150px;
+    min-width: 1024px;
   }
 }
 
@@ -54,6 +61,5 @@ a {
 @media (max-width: 1024px) {
   .wrap {
     width: 100%;
-    padding: 0 2rem;
   }
 }

@@ -60,7 +60,7 @@ function cpt_52club() {
 		'has_archive'           => '52-club',
 		'exclude_from_search'   => false,
 		'publicly_queryable'    => true,
-		'rewrite'               => false,
+		'rewrite'               => true,
 		'capability_type'       => 'page',
 	);
 	register_post_type( '52club', $args );
@@ -427,7 +427,7 @@ function ctax_staff() {
 	);
 	$args = array(
 		'labels'                     => $labels,
-		'hierarchical'               => false,
+		'hierarchical'               => true,
 		'public'                     => true,
 		'show_ui'                    => true,
 		'show_admin_column'          => true,
@@ -458,3 +458,111 @@ function ex_change_title_text($title) {
   return $title;
 }
 add_filter('enter_title_here', 'ex_change_title_text');
+
+
+// ADMIN: 52 Club - Custom Columns
+add_filter('manage_52club_posts_columns', 'set_custom_edit_52club_columns');
+function set_custom_edit_52club_columns($columns) {
+  unset($columns['title']);
+  unset($columns['date']);
+  $columns['year'] = __('Year', 'exonym');
+  $columns['type'] = __('Type', 'exonym');
+  $columns['entries'] = __('Entry Count', 'exonym');
+  return $columns;
+}
+add_action('manage_52club_posts_custom_column' , 'custom_52club_column', 10, 2);
+function custom_52club_column($column, $post_id) {
+  switch($column) {
+    case 'year':
+      echo '<a href="' . get_edit_post_link($post_id) . '"><strong>' . get_field('year', $post_id) . '</strong></a>';
+      break;
+    case 'type':
+      the_field('type', $post_id);
+      break;
+    case 'entries':
+      $list = get_field('list', $post_id);
+      echo (substr_count($list, '<br />') + 1);
+      break;
+  }
+}
+
+
+// ADMIN: Events - Custom Columns
+add_filter('manage_event_posts_columns', 'set_custom_edit_event_columns');
+function set_custom_edit_event_columns($columns) {
+  unset($columns['date']);
+  $columns['event_date'] = __('Event Date', 'exonym');
+  $columns['flyer'] = __('Flyer', 'exonym');
+  return $columns;
+}
+add_action('manage_event_posts_custom_column' , 'custom_event_column', 10, 2);
+function custom_event_column($column, $post_id) {
+  switch($column) {
+    case 'event_date':
+      $date = new DateTime(get_field('event_date', false));
+      echo $date->format('M jS, Y - g:ia');
+      break;
+    case 'flyer':
+      the_post_thumbnail('thumbnail');
+      break;
+  }
+}
+
+function change_order_for_events( $query ) {
+  if ( $query->is_main_query() && is_post_type_archive('event') ) {
+    $query->set( 'meta_key', 'event_date' );
+    $query->set( 'meta_type', 'DATETIME' );
+    $query->set( 'orderby', 'meta_value' );
+    $query->set( 'order', 'DESC' );
+  }
+}
+add_action('pre_get_posts', 'change_order_for_events');
+
+
+// ADMIN: Staff - Custom Columns
+add_filter('manage_staff_posts_columns', 'set_custom_edit_staff_columns');
+function set_custom_edit_staff_columns($columns) {
+  unset($columns['date']);
+  $columns['position'] = __('Position', 'exonym');
+  $columns['photo'] = __('Photo', 'exonym');
+  return $columns;
+}
+add_action('manage_staff_posts_custom_column' , 'custom_staff_column', 10, 2);
+function custom_staff_column($column, $post_id) {
+  switch($column) {
+    case 'photo':
+      if(has_post_thumbnail()) {
+        the_post_thumbnail('thumbnail');
+      } else {
+        echo '<em>No Photo</em>';
+      }
+      break;
+    case 'position':
+      the_field('position');
+      break;
+  }
+}
+
+
+// ADMIN: Sponsors - Custom Columns
+add_filter('manage_sponsor_posts_columns', 'set_custom_edit_sponsor_columns');
+function set_custom_edit_sponsor_columns($columns) {
+  unset($columns['date']);
+  $columns['logo'] = __('Logo', 'exonym');
+  $columns['status'] = __('Status', 'exonym');
+  return $columns;
+}
+add_action('manage_sponsor_posts_custom_column' , 'custom_sponsor_column', 10, 2);
+function custom_sponsor_column($column, $post_id) {
+  switch($column) {
+    case 'logo':
+      the_post_thumbnail('medium');
+      break;
+    case 'status':
+      if(get_field('active')) {
+        echo '<strong>Active Sponsor</strong>';
+      } else {
+        echo '<em>Inactive></em>';
+      }
+  }
+}

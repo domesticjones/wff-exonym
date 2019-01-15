@@ -1,6 +1,15 @@
 /**
   Animation Settings
   ---------------------------------------------------------------------- */
+.module-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
 .animate-parallax {
   .module-bg {
     top: 0;
@@ -26,13 +35,13 @@
   Parallax Animation
   ---------------------------------------------------------------------- */
 .animate-z-subtle .module-bg {
-  height: calc(100% + 4rem);
-}
-
-.animate-z-normal .module-bg {
   height: calc(100% + 8rem);
 }
 
+.animate-z-normal .module-bg {
+  height: calc(100% + 12rem);
+}
+
 .animate-z-extreme .module-bg {
-  height: calc(100% + 16rem);
+  height: calc(100% + 20rem);
 }

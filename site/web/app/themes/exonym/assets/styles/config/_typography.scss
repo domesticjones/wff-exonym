@@ -19,7 +19,7 @@ $font-italic: italic;
 $useMarkupBold: true;
 $useMarkupItal: true;
 
-@mixin fontBold($undo: true, $weight: $font-bold) {
+@mixin fontBold($undo: true, $weight: $font-ultra-bold) {
   @if $useMarkupBold {
     @if $undo {
       font-weight: $weight;
@@ -127,6 +127,7 @@ h6 {
   margin: 0;
   line-height: 1;
   font-family: $font-heading;
+  text-transform: uppercase;
 
   @include fontBold();
 }
@@ -154,13 +155,13 @@ h4 {
 h5 {
   font-size: 1em;
   margin-bottom: 1em;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 h6 {
   font-size: 0.75em;
   margin-bottom: 2em;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 0.25em;
 }
 

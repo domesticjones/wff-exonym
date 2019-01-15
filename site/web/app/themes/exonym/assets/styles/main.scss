@@ -20,7 +20,7 @@
 @import "global/footer";
 
 /**
-  Exonym Plugins
+  Module Parts
   ---------------------------------------------------------------------- */
-// @import "../../../../plugins/exonym-content/sass/exonym-content.scss"; // Content Builder
-// @import "../../../../plugins/exonym-staff/exonym-staff.scss"; // Staff Plugin
+@import "modules/hero";
+@import "modules/event";
