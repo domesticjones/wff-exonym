@@ -16,12 +16,31 @@ function exmod_donate($type) {
   return $output;
 }
 
+function exmod_bg() {
+  $bg = get_sub_field('background');
+  $image = $bg['image']['sizes']['jumbo'];
+  $opacity = ($bg['opacity']) / 100;
+  $pos = $bg['position'];
+  $color = get_sub_field('color');
+  if($color == 'purple') {
+    $image = asset_path('images/bg-purple.jpg');
+  }
+  $output = '<div class="module-bg module-bg-x-' . $pos['x'] . ' module-bg-y-' . $pos['y'] . '" style="background-image: url(' . $image . '); opacity: ' . $opacity . '"></div>';
+  if($image) {
+    return $output;
+  }
+}
+
 // Module Wrappers
-function exmod_wrap($position, $name = null, $print = true) {
+function exmod_wrap($position, $class = null, $name = null, $print = true) {
   $output = 'Invalid argument. Use *start* or *end*';
   if(get_sub_field('module_name')) { $name = str_replace(' ', '-', strtolower(get_sub_field('module_name'))); }
+  $color = get_sub_field('color');
+  $parallax = get_sub_field('background')['parallax'];
+  if($parallax) { $parallax = ' animate-parallax animate-z-normal'; }
+  if($color == 'purple') { $parallax = ' animate-parallax animate-z-subtle'; }
   if($position == 'start') {
-    $output = '<section id="' . $name . '" class="module"><div class="wrap">';
+    $output = '<section id="' . $name . '" class="module animate-on-enter ' . $class . ' module-color-' . $color . $parallax . '">' . exmod_bg() . '<div class="wrap">';
   } elseif($position == 'end') {
     $output = '</div></section>';
   }
@@ -117,7 +136,7 @@ function exmod_blocks() {
       } elseif(get_row_layout() == 'events') {
         exmod_events();
       } elseif(get_row_layout() == 'rich_content') {
-        echo 'RICH CONTENT';
+        get_template_part('modules/richcontent');
       } elseif(get_row_layout() == 'sponsors') {
         echo 'SPONSORS';
       } elseif(get_row_layout() == 'staff') {

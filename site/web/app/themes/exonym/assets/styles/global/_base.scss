@@ -12,11 +12,8 @@ body {
   position: relative;
 }
 
-/**
-  Module Globals
-  ---------------------------------------------------------------------- */
-.module {
-  padding: 4vw;
+#container {
+  overflow: hidden;
 }
 
 /**
@@ -48,7 +45,13 @@ a {
   ---------------------------------------------------------------------- */
 @media (min-width: 1025px) {
   .wrap {
-    min-width: 1024px;
+    width: 1024px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .wrap {
+    width: 1200px;
   }
 }
 
