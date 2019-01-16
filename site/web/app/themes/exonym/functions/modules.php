@@ -25,7 +25,7 @@ function exmod_bg() {
   if($color == 'purple') {
     $image = asset_path('images/bg-purple.jpg');
   }
-  $output = '<div class="module-bg module-bg-x-' . $pos['x'] . ' module-bg-y-' . $pos['y'] . '" style="background-image: url(' . $image . '); opacity: ' . $opacity . '"></div>';
+  $output = '<div class="module-bg" style="background-image: url(' . $image . '); opacity: ' . $opacity . '; background-position: ' . $pos['x'] . ' ' . $pos['y'] . ';"></div>';
   if($image) {
     return $output;
   }
@@ -42,7 +42,7 @@ function exmod_wrap($position, $class = null, $name = null, $print = true) {
   if($position == 'start') {
     $output = '<section id="' . $name . '" class="module animate-on-enter ' . $class . ' module-color-' . $color . $parallax . '">' . exmod_bg() . '<div class="wrap">';
   } elseif($position == 'end') {
-    $output = '</div></section>';
+    $output = exmod_cta() . '</div></section>';
   }
   if($print) {
     echo $output;
@@ -56,30 +56,29 @@ get_template_part('modules/hero');
 
 // Call to Action
 function exmod_cta() {
-  /*
-  calls_to_action
-    link
-
-  global_ctas
-    type
-      donate : Donation
-      52club-annual : 52 Club (Annual)
-      52club-lifetime : 52 Club (Lifetime)
-    donation_text
-    52_club_annual_text
-    52_club_lifetime_text
-  */
-}
-
-// Module Settings
-function exmod_settings() {
-  /*
-  color
-    white : White background, dark text
-    grey : Grey background, dark text
-    purple : Purple background, light text
-    black : Black background, light text
-  */
+  $global = get_sub_field('global_ctas');
+  $type = $global['type'];
+  $wrapStart = '<nav class="module-cta-wrap"><ul>';
+  $wrapEnd = '</ul></nav>';
+  $data = '';
+  if(!empty($type)) {
+    if(in_array('donate', $type)) {
+      $data .= '<li><a href="' . exmod_donate('donate') . '">' . $global['donation_text'] . '</a></li>';
+    } if(in_array('52club-annual', $type)) {
+      $data .= '<li><a href="' . exmod_donate('52_club_annual') . '">' . $global['52_club_annual_text'] . '</a></li>';
+    } if(in_array('52club-lifetime', $type)) {
+      $data .= '<li><a href="' . exmod_donate('52_club_lifetime') . '">' . $global['52_club_lifetime_text'] . '</a></li>';
+    }
+  }
+  if(have_rows('calls_to_action')) { while(have_rows('calls_to_action')) {
+    the_row();
+    $link = get_sub_field('link');
+    $data .= '<li><a href="' . $link['url'] . '" target="' . $link['target'] . '">' . $link['title'] . '</a></li>';
+  }}
+  $output = $wrapStart . $data . $wrapEnd;
+  if($data) {
+    return $output;
+  }
 }
 
 // Events Module
@@ -121,26 +120,21 @@ function exmod_events() {
   wp_reset_query();
 }
 
-
-
-
-
-
 // Content Blocks Master Function
 function exmod_blocks() {
   if(have_rows('content_blocks')) {
     while(have_rows('content_blocks')) {
       the_row();
       if(get_row_layout() == 'documents') {
-        echo 'DOCUMENTS';
+        get_template_part('modules/documents');
       } elseif(get_row_layout() == 'events') {
         exmod_events();
       } elseif(get_row_layout() == 'rich_content') {
         get_template_part('modules/richcontent');
       } elseif(get_row_layout() == 'sponsors') {
-        echo 'SPONSORS';
+        get_template_part('modules/sponsors');
       } elseif(get_row_layout() == 'staff') {
-        echo 'STAFF';
+        get_template_part('modules/staff');
       } elseif(get_row_layout() == 'sub_sections') {
         echo 'SUB SECTIONS';
       }

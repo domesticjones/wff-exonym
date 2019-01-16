@@ -556,7 +556,7 @@ add_action('manage_sponsor_posts_custom_column' , 'custom_sponsor_column', 10, 2
 function custom_sponsor_column($column, $post_id) {
   switch($column) {
     case 'logo':
-      the_post_thumbnail('medium');
+      the_post_thumbnail('small');
       break;
     case 'status':
       if(get_field('active')) {

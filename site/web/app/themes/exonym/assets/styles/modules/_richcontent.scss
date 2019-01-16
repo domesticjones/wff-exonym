@@ -1,5 +1,5 @@
 .heading-text {
-  margin-bottom: 3em;
+  margin-bottom: 2em;
   font-size: 1.75em;
 
   &-size-s { font-size: 1em; }
@@ -13,7 +13,7 @@
 
 .heading-text-line {
   display: block;
-  margin: 0.25em 0;
+  line-height: 1.15;
 }
 
 .richcontent-data {
@@ -29,6 +29,7 @@
   }
 }
 
+/* stylelint-disable */
 .richcontent-layout {
   &-single {
     max-width: 960px;
@@ -49,7 +50,23 @@
       }
     }
   }
+
+  &-triple {
+    .column {
+      width: 29.333%;
+      float: left;
+
+      &:first-of-type {
+        margin-right: 6%;
+      }
+
+      &:last-of-type {
+        margin-left: 6%;
+      }
+    }
+  }
 }
+/* stylelint-enable */
 
 @media (max-width: 1200px) {
   .heading-text {

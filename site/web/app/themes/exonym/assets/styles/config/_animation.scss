@@ -6,13 +6,13 @@
   opacity: 0;
   transform: translateY(4rem);
 
-  @include transition(all 666ms ease-in-out);
+  @include transition(all 666ms ease-in-out 333ms);
 
   .wrap {
     opacity: 0;
-    transform: scale(1.25);
+    transform: scale(1.1);
 
-    @include transition(all 666ms ease-in-out 333ms);
+    @include transition(all 666ms ease-in-out 666ms);
   }
 
   &.is-visible {

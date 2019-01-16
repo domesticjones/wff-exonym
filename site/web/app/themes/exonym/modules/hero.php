@@ -60,8 +60,30 @@ function exmod_hero($style = 'None', $text = null, $media = null) {
     </h1>
   <?php
     endif;
+    $cta = get_field('hero_cta');
+    $ctaCustom = $cta['calls_to_action'];
+    $global = $cta['global_ctas'];
+    $type = $global['type'];
+    $wrapStart = '<nav class="module-cta-wrap"><ul>';
+    $wrapEnd = '</ul></nav>';
+    $data = '';
+    if(!empty($type)) {
+      if(in_array('donate', $type)) {
+        $data .= '<li><a href="' . exmod_donate('donate') . '">' . $global['donation_text'] . '</a></li>';
+      } if(in_array('52club-annual', $type)) {
+        $data .= '<li><a href="' . exmod_donate('52_club_annual') . '">' . $global['52_club_annual_text'] . '</a></li>';
+      } if(in_array('52club-lifetime', $type)) {
+        $data .= '<li><a href="' . exmod_donate('52_club_lifetime') . '">' . $global['52_club_lifetime_text'] . '</a></li>';
+      }
+    }
+    if($ctaCustom) { foreach($ctaCustom as $ctaCust) {
+      $data .= '<li><a href="' . $ctaCust['link']['url'] . '" target="' . $ctaCust['link']['target'] . '">' . $ctaCust['link']['title'] . '</a></li>';
+    }}
+    $output = $wrapStart . $data . $wrapEnd;
+    if($data) {
+      echo $output;
+    }
   ?>
-  <p>Need the CTA to Go In Here Still!!!</p>
 </header>
 <?php
   endif;

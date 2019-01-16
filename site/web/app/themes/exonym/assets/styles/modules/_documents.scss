@@ -1,0 +1,60 @@
+.docs-wrap {
+  @include listStripped();
+  @include grid(center, flex-start, row, wrap);
+
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.doc-single {
+  display: block;
+  max-width: 33.333%;
+  padding: 2vw !important;
+  transform: scale(1);
+
+  @include transition(all 133ms ease);
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  a {
+    position: relative;
+    display: block;
+    padding-left: 2rem;
+    font-size: 1.25em;
+    font-weight: $font-ultra-bold;
+    line-height: 1.25;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0.25rem;
+      left: 0;
+      height: 1.5rem;
+      width: 1.5rem;
+      background-image: url('../images/icon-document.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    span {
+      display: block;
+      font-size: 0.65em;
+      font-weight: $font-light;
+    }
+  }
+}
+
+@media (max-width: 960px) {
+  .doc-single {
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 540px) {
+  .doc-single {
+    max-width: 100%;
+  }
+}

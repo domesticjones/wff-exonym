@@ -1,41 +1,74 @@
 /**
   Global Website Header
   ---------------------------------------------------------------------- */
-.header-top {
-  padding: 1rem 0;
-  z-index: 9999;
+body {
+  padding-top: 7rem;
+}
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  z-index: 999;
+  padding: 1rem 0;
   background-color: $white;
+
+  @include transition(all 333ms ease-in-out);
 
   .wrap {
     @include grid(space-between, center);
   }
 
-  .nav-social {
-    ul {
-      @include listStripped();
-      @include grid();
+  .nav-social ul {
+    @include listStripped();
+    @include grid();
 
-      li {
-        margin: 0 0.5em;
-      }
+    li {
+      margin: 0.125rem;
+    }
 
-      a,
-      img {
-        display: block;
-        height: 2em;
-      }
+    a {
+      display: block;
+      padding: 0.125rem;
+      border-radius: 50%;
+      background-color: transparent;
 
-      span {
-        display: none;
+      @include transition(all 133ms ease);
+
+      &:hover {
+        background-color: $grey;
       }
     }
-  }
-}
 
-.logo-header {
-  display: block;
-  height: 2.5rem;
+    img {
+      display: block;
+      height: 1.5rem;
+      padding: 0.25rem;
+      margin: 0 auto;
+    }
+
+    span {
+      display: none;
+    }
+  }
+
+  .logo-header {
+    display: block;
+    height: 5rem;
+
+    @include transition(all 233ms ease);
+  }
+
+  &.is-scrolled {
+    background-color: transparentize($white, 0.1);
+
+    .logo-header {
+      height: 3rem;
+
+      @include transition(all 555ms ease);
+    }
+  }
 }
 
 #responsive-nav-toggle {

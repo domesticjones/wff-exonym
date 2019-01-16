@@ -10,6 +10,16 @@ jQuery(document).ready(() => {
 		$this.toggleClass('is-active');
 	});
 
+	// HEADER: onScroll functions
+	$(window).on('load resize scroll', () => {
+		const scroll = $(window).scrollTop();
+		if(scroll > 40) {
+			$('#header').addClass('is-scrolled');
+		} else {
+			$('#header').removeClass('is-scrolled');
+		}
+	});
+
 	// MODULES: Parallax
 	$(window).on('load resize scroll', () => {
 		const d_scroll = $(window).scrollTop();
@@ -47,5 +57,12 @@ jQuery(document).ready(() => {
 				$this.removeClass('is-visible');
 			}
 		});
+	});
+
+	// MODULE: Staff
+	$('.staff-more').click((e) => {
+		e.preventDefault();
+		const $this = $(e.currentTarget);
+		$this.closest('.staff-data').find('.staff-bio').slideToggle();
 	});
 });

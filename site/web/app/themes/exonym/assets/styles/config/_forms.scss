@@ -230,11 +230,11 @@ input[type="button"],
 input[type="submit"],
 input[type="reset"],
 input[type="image"] {
-  height: $fh-button-height;
+  height: auto;
   width: $fh-button-width;
   max-width: $fh-button-max-width;
   background-color: $fh-button-bg-color;
-  padding: ($fh-input-height / 2);
+  padding: ($fh-input-height / 2.5) ($fh-input-height / 2);
   cursor: pointer;
   color: $fh-button-font-color !important;
   font-weight: $font-bold;
@@ -242,6 +242,7 @@ input[type="image"] {
   border-radius: $fh-border-radius;
   border: none;
   text-transform: uppercase;
+  text-decoration: none !important;
 
   @include transition();
 }

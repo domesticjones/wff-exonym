@@ -15,6 +15,7 @@
       the_sub_field('content');
     } else {
       echo '<div class="column">' . get_sub_field('content') . '</div>';
+      if($layout == 'triple') { echo '<div class="column">' . get_sub_field('content_center') . '</div>'; }
       echo '<div class="column">' . get_sub_field('content_right') . '</div>';
     }
   ?>
