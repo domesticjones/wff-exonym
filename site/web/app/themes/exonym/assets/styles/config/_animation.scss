@@ -12,7 +12,7 @@
     opacity: 0;
     transform: scale(1.1);
 
-    @include transition(all 666ms ease-in-out 666ms);
+    @include transition(all 666ms ease-in-out 333ms);
   }
 
   &.is-visible {

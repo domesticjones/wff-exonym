@@ -63,17 +63,17 @@ function exmod_cta() {
   $data = '';
   if(!empty($type)) {
     if(in_array('donate', $type)) {
-      $data .= '<li><a href="' . exmod_donate('donate') . '">' . $global['donation_text'] . '</a></li>';
+      $data .= '<li><a href="' . exmod_donate('donate') . '" class="animate-on-enter animate-on-leave">' . $global['donation_text'] . '</a></li>';
     } if(in_array('52club-annual', $type)) {
-      $data .= '<li><a href="' . exmod_donate('52_club_annual') . '">' . $global['52_club_annual_text'] . '</a></li>';
+      $data .= '<li><a href="' . exmod_donate('52_club_annual') . '" class="animate-on-enter animate-on-leave">' . $global['52_club_annual_text'] . '</a></li>';
     } if(in_array('52club-lifetime', $type)) {
-      $data .= '<li><a href="' . exmod_donate('52_club_lifetime') . '">' . $global['52_club_lifetime_text'] . '</a></li>';
+      $data .= '<li><a href="' . exmod_donate('52_club_lifetime') . '" class="animate-on-enter animate-on-leave">' . $global['52_club_lifetime_text'] . '</a></li>';
     }
   }
   if(have_rows('calls_to_action')) { while(have_rows('calls_to_action')) {
     the_row();
     $link = get_sub_field('link');
-    $data .= '<li><a href="' . $link['url'] . '" target="' . $link['target'] . '">' . $link['title'] . '</a></li>';
+    $data .= '<li><a href="' . $link['url'] . '" target="' . $link['target'] . '" class="animate-on-enter animate-on-leave">' . $link['title'] . '</a></li>';
   }}
   $output = $wrapStart . $data . $wrapEnd;
   if($data) {
@@ -129,6 +129,8 @@ function exmod_blocks() {
         get_template_part('modules/documents');
       } elseif(get_row_layout() == 'events') {
         exmod_events();
+      } elseif(get_row_layout() == 'image_gallery') {
+        get_template_part('modules/gallery');
       } elseif(get_row_layout() == 'rich_content') {
         get_template_part('modules/richcontent');
       } elseif(get_row_layout() == 'sponsors') {
@@ -136,56 +138,8 @@ function exmod_blocks() {
       } elseif(get_row_layout() == 'staff') {
         get_template_part('modules/staff');
       } elseif(get_row_layout() == 'sub_sections') {
-        echo 'SUB SECTIONS';
+        get_template_part('modules/subsections');
       }
     }
   }
-  /*
-  documents
-    files
-      file
-  rich_content
-    layout
-      single : One-column
-      double : Two-column
-    heading
-      text
-      size
-        s : Small
-        m : Medium
-        l : Large
-      alignment
-        left : Left
-        center : Center
-        right : Right
-    content
-  sponsors
-    order
-      alpha : Alphabetical
-      menu : Menu Order
-      custom : Custom
-    sponsor_order
-  staff
-    display
-      large
-      small
-    type
-  sub_sections
-    display
-      orientation
-        Horizontal
-        Vertical
-      details
-        Image
-        Icon
-        Name
-        Button
-        Description
-    sections
-      link
-      images
-        icon
-        image
-      description
-  */
 }

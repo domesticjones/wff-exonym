@@ -59,6 +59,20 @@ jQuery(document).ready(() => {
 		});
 	});
 
+	// MODULE: Hero Slider
+	const heroPhotoCount = $('.hero-single').length;
+	if(heroPhotoCount > 1) {
+		$('.hero-photos > li:gt(0)').hide();
+		setInterval(() => {
+			$('.hero-photos > li:first')
+			.fadeOut(1333)
+			.next()
+			.fadeIn(1333)
+			.end()
+			.appendTo('.hero-photos');
+		}, 4444);
+	}
+
 	// MODULE: Staff
 	$('.staff-more').click((e) => {
 		e.preventDefault();

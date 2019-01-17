@@ -1,0 +1,19 @@
+.gallery-wrap {
+  @include listStripped();
+  @include grid(center, center, row, wrap);
+}
+
+.gallery-single {
+  max-width: 15rem;
+
+  a {
+    display: block;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 650px) {
+  li.gallery-single {
+    max-width: 50%;
+  }
+}

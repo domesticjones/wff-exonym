@@ -24,7 +24,7 @@ function exmod_hero($style = 'None', $text = null, $media = null) {
         ?>
           <ul class="hero-photos">
             <?php foreach($picMedia as $img): ?>
-              <li><div class="hero-image" style="background-image: url(<?php echo $img['sizes']['jumbo']; ?>)"></div></li>
+              <li class="hero-single"><div class="hero-image" style="background-image: url(<?php echo $img['sizes']['jumbo']; ?>)"></div></li>
             <?php endforeach; ?>
           </ul>
         <?php
@@ -69,15 +69,15 @@ function exmod_hero($style = 'None', $text = null, $media = null) {
     $data = '';
     if(!empty($type)) {
       if(in_array('donate', $type)) {
-        $data .= '<li><a href="' . exmod_donate('donate') . '">' . $global['donation_text'] . '</a></li>';
+        $data .= '<li><a href="' . exmod_donate('donate') . '" class="animate-on-enter animate-on-leave">' . $global['donation_text'] . '</a></li>';
       } if(in_array('52club-annual', $type)) {
-        $data .= '<li><a href="' . exmod_donate('52_club_annual') . '">' . $global['52_club_annual_text'] . '</a></li>';
+        $data .= '<li><a href="' . exmod_donate('52_club_annual') . '" class="animate-on-enter animate-on-leave">' . $global['52_club_annual_text'] . '</a></li>';
       } if(in_array('52club-lifetime', $type)) {
-        $data .= '<li><a href="' . exmod_donate('52_club_lifetime') . '">' . $global['52_club_lifetime_text'] . '</a></li>';
+        $data .= '<li><a href="' . exmod_donate('52_club_lifetime') . '" class="animate-on-enter animate-on-leave">' . $global['52_club_lifetime_text'] . '</a></li>';
       }
     }
     if($ctaCustom) { foreach($ctaCustom as $ctaCust) {
-      $data .= '<li><a href="' . $ctaCust['link']['url'] . '" target="' . $ctaCust['link']['target'] . '">' . $ctaCust['link']['title'] . '</a></li>';
+      $data .= '<li><a href="' . $ctaCust['link']['url'] . '" target="' . $ctaCust['link']['target'] . '" class="animate-on-enter animate-on-leave">' . $ctaCust['link']['title'] . '</a></li>';
     }}
     $output = $wrapStart . $data . $wrapEnd;
     if($data) {

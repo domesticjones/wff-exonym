@@ -1,0 +1,149 @@
+.subsection-wrap {
+  @include listStripped();
+
+  h2 {
+    margin: 1rem 0;
+    font-size: 1.75rem;
+    text-transform: none;
+  }
+
+  a.button {
+    display: inline-block;
+    width: auto;
+    margin-top: 1rem;
+  }
+}
+
+.subsection-head {
+  @include grid(center, center);
+
+  background-size: cover;
+  background-position: center center;
+  min-height: 13rem;
+  background-color: $black;
+
+  img {
+    display: block;
+    margin: 0 auto;
+    height: 8rem;
+    width: auto;
+  }
+}
+
+.subsection-desc {
+  width: 100%;
+
+  p:last-of-type {
+    padding-bottom: 0;
+  }
+}
+
+.subsection-display {
+  &-horizontal {
+    @include grid(center, stretch);
+
+    .subsection-single {
+      @include grid(flex-start, center, column);
+
+      margin: 0 3vw;
+      flex-grow: 1;
+      flex-basis: 0;
+    }
+
+    .subsection-head {
+      width: 100%;
+    }
+
+    .subsection-data {
+      @include grid(flex-start, center, column);
+    }
+
+    h2,
+    .subsection-desc {
+      text-align: center;
+      padding: 0 0.5rem;
+      margin: 1rem 0;
+    }
+  }
+
+  &-vertical {
+    max-width: 768px;
+    margin: 0 auto;
+
+    .subsection-single {
+      @include grid(flex-start, stretch);
+
+      width: 100%;
+      margin-bottom: 6vw;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    .subsection-head {
+      width: 40%;
+    }
+
+    .subsection-data {
+      width: 60%;
+      padding-left: 3vw;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .subsection-display-horizontal {
+    display: block;
+    max-width: 768px;
+    margin: 0 auto;
+
+    .subsection-single {
+      @include grid(flex-start, stretch);
+
+      width: 100%;
+      margin-bottom: 6vw;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    .subsection-head {
+      width: 40%;
+    }
+
+    .subsection-data {
+      @include grid(flex-start, flex-start, column);
+
+      width: 60%;
+      padding-left: 3vw;
+    }
+
+    h2,
+    .subsection-desc {
+      text-align: left;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .subsection-display-horizontal,
+  .subsection-display-vertical {
+    .subsection-single {
+      @include grid(center, center, column);
+
+      margin: 0 0 6vw 0;
+    }
+
+    .subsection-head,
+    .subsection-data {
+      width: 100%;
+      padding: 0;
+    }
+  }
+}
