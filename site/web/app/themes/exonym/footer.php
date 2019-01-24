@@ -6,7 +6,13 @@
     <footer class="module animate-on-enter animate-parallax animate-z-subtle footer-signup module-color-purple">
       <div class="module-bg" style="background-image: url(<?php echo asset_path('images/bg-purple.jpg'); ?>); opacity: 1; background-position: center center;"></div>
       <div class="wrap">
-        Constant Contact
+        <h2>Join Our Mailing List</h2>
+        <p class="footer-signup-content">
+          By signing up for our email list, you will be first to receive updates, announcements, newsletters, and any other information we might have in store.
+        </p>
+        <script> var _ctct_m = "33c5ba4ced2f47b71dc54b1f5226be3c"; </script>
+        <script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
+        <div class="ctct-inline-form" data-form-id="38f5e96f-62c4-4132-8432-256cce580b20"></div>
       </div>
     </footer>
     <footer id="footer" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">

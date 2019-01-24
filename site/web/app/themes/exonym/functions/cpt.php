@@ -104,7 +104,7 @@ function cpt_resources() {
 	$args = array(
 		'label'                 => __( 'Resource', 'exonym' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title' ),
+		'supports'              => array( 'title', 'thumbnail' ),
 		'taxonomies'            => array( 'resource_categories' ),
 		'hierarchical'          => false,
 		'public'                => true,
@@ -127,7 +127,7 @@ function cpt_resources() {
 add_action( 'init', 'cpt_resources', 0 );
 
 
-// TAXONOMY: Equipment Categories
+// TAXONOMY: Resource Categories
 function ctax_resources() {
 
 	$labels = array(
@@ -153,7 +153,7 @@ function ctax_resources() {
 		'items_list_navigation'      => __( 'Resource Categories list navigation', 'exonym' ),
 	);
 	$rewrite = array(
-		'slug'                       => 'equipment',
+		'slug'                       => 'resources',
 		'with_front'                 => true,
 		'hierarchical'               => true,
 	);
@@ -167,7 +167,7 @@ function ctax_resources() {
 		'show_tagcloud'              => true,
 		'rewrite'                    => $rewrite,
 	);
-	register_taxonomy( 'resource_categories', array( 'resource' ), $args );
+	register_taxonomy( 'resource_categories', array( 'resource', 'post' ), $args );
 
 }
 add_action( 'init', 'ctax_resources', 0 );

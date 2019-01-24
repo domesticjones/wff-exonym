@@ -79,4 +79,22 @@ jQuery(document).ready(() => {
 		const $this = $(e.currentTarget);
 		$this.closest('.staff-data').find('.staff-bio').slideToggle();
 	});
+
+	// MODULE: Footer Signup Hover/Focus change
+	$(window).load(() => {
+		$('.ctct-form-element').each((i,e) => {
+			const $this = $(e);
+			$this.on('focus', () => {
+				$this.parent('.ctct-form-field').find('.ctct-form-label').addClass('is-active');
+			});
+			$this.on('blur', () => {
+				if($this.val().length == 0) {
+					$this.parent('.ctct-form-field').find('.ctct-form-label').removeClass('is-active');
+				}
+			});
+			if($this.val() != '') {
+				$this.parent('.ctct-form-field').find('.ctct-form-label').addClass('is-active');
+			}
+		});
+	});
 });

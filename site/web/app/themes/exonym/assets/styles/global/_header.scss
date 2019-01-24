@@ -24,6 +24,8 @@ body {
     @include listStripped();
     @include grid();
 
+    margin: 0 1rem;
+
     li {
       margin: 0.125rem;
     }
@@ -37,7 +39,7 @@ body {
       @include transition(all 133ms ease);
 
       &:hover {
-        background-color: $grey;
+        opacity: 0.666;
       }
     }
 
@@ -68,6 +70,10 @@ body {
 
       @include transition(all 555ms ease);
     }
+  }
+
+  .button {
+    margin-left: 1rem;
   }
 }
 

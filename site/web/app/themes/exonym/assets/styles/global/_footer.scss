@@ -1,6 +1,126 @@
 /**
   Global Website Footer
   ---------------------------------------------------------------------- */
+.footer-signup {
+  h2 {
+    text-align: center;
+    text-transform: none;
+    font-weight: $font-bold;
+  }
+
+  .footer-signup-content {
+    text-align: center;
+  }
+
+  #gdpr_text,
+  .g-recaptcha {
+    display: none;
+  }
+
+  div.ctct-form-embed div.ctct-form-defaults {
+    font-family: $font-default;
+    background-color: transparent;
+    padding-top: 0;
+  }
+
+  .ctct-form-custom {
+    @include grid(center, flex-end);
+  }
+
+  div.ctct-form-embed form.ctct-form-custom input.ctct-form-element {
+    background-color: transparent;
+    border: none;
+    border: 1px solid transparent;
+    border-bottom: 2px solid $white;
+    padding: 0 0.5rem;
+    color: $white;
+    border-radius: 0;
+    margin-bottom: 0;
+
+    @include transition();
+
+    &:active,
+    &:focus {
+      outline: none;
+      border: 1px solid transparentize($white, 0.75);
+      border-bottom: 2px solid $white;
+      background-color: transparentize($white, 0.95);
+    }
+
+    &.is-error {
+      border-color: $orange !important;
+    }
+  }
+
+  div.ctct-form-embed form.ctct-form-custom div.ctct-form-field {
+    margin: 0 1rem;
+    position: relative;
+  }
+
+  .ctct-form-embed.form_0 .ctct-form-custom .ctct-form-button {
+    width: auto;
+    background-color: transparent;
+    border: 2px solid $white;
+    border-radius: 0;
+    margin: 0 1rem;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    padding: 0.85rem 2rem;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $white;
+      color: $purple !important;
+    }
+  }
+
+  .ctct-form-label {
+    position: absolute !important;
+    z-index: -1;
+    bottom: 1rem;
+    left: 0.25rem;
+    font-style: $font-italic;
+
+    @include transition();
+
+    &.is-active {
+      transform: translate(-0.25rem, -2.25rem);
+      color: $grey !important;
+    }
+  }
+
+  div.ctct-form-embed form.ctct-form-custom .ctct-form-required::before {
+    color: $orange !important;
+  }
+
+  .ctct-form-embed.form_0 .ctct-form-defaults .ctct-form-text,
+  .ctct-form-embed.form_0 .ctct-form-custom .ctct-form-label,
+  .ctct-form-embed.form_0 .ctct-form-custom .ctct-form-listname,
+  .ctct-form-embed.form_0 .ctct-form-custom .ctct-form-lists-legend,
+  .ctct-form-embed.form_0 .ctct-form-custom .ctct-form-date-slash,
+  .ctct-form-embed.form_0 .ctct-form-defaults .ctct-gdpr-text,
+  .ctct-form-embed.form_0 .ctct-form-defaults .ctct-gdpr-text .ctct-form-footer-link,
+  .ctct-form-embed.form_0 .ctct-form-defaults .ctct-gdpr-text .ctct-form-footer-privacy-link {
+    margin: 0;
+    color: $white;
+    font-weight: $font-light;
+    font-size: 0.75rem;
+    letter-spacing: 0.025em;
+    font-family: $font-default;
+    text-align: center;
+  }
+
+  div.ctct-form-embed form.ctct-form-custom .ctct-form-errorMessage {
+    color: $orange !important;
+  }
+
+  div.ctct-form-embed div.ctct-form-defaults h2.ctct-form-header {
+    font-family: $font-default;
+    color: $white;
+  }
+}
+
 #footer {
   padding: 3vw;
   font-size: 0.85rem;
@@ -154,6 +274,17 @@
 }
 
 @media (max-width: 960px) {
+  .footer-signup {
+    .ctct-form-custom {
+      @include grid(center, center, column);
+    }
+
+    div.ctct-form-embed form.ctct-form-custom div.ctct-form-field {
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+  }
+
   #footer .wrap {
     @include grid(center, center, column);
 
