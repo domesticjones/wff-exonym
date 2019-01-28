@@ -23,8 +23,17 @@
   ul {
     display: block;
 
-    &:last-of-type {
+    &:last-child {
       padding-bottom: 0;
+    }
+  }
+
+  &.error-404 {
+    text-align: center;
+    font-size: 1.25em;
+
+    p {
+      padding-bottom: 1em;
     }
   }
 }
@@ -41,11 +50,11 @@
       width: 48%;
       float: left;
 
-      &:first-of-type {
+      &:first-child {
         margin-right: 2%;
       }
 
-      &:last-of-type {
+      &:last-child {
         margin-left: 2%;
       }
     }
@@ -93,6 +102,6 @@
 
 @media (max-width: 768px) {
   .heading-text {
-    font-size: 1em;
+    font-size: 0.85em;
   }
 }

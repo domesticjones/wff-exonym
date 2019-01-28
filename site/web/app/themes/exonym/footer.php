@@ -3,7 +3,7 @@
      DEFAULT FOOTER
      ============== */
 ?>
-    <footer class="module animate-on-enter animate-parallax animate-z-subtle footer-signup module-color-purple">
+    <footer class="module animate-parallax animate-z-subtle footer-signup module-color-purple">
       <div class="module-bg" style="background-image: url(<?php echo asset_path('images/bg-purple.jpg'); ?>); opacity: 1; background-position: center center;"></div>
       <div class="wrap">
         <h2>Join Our Mailing List</h2>
@@ -18,7 +18,9 @@
     <footer id="footer" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
       <div class="wrap">
         <div class="column">
-          <img src="<?php ex_logo(); ?>" alt="Logo for <?php ex_brand(); ?>" class="logo-footer" />
+          <a href="<?php echo home_url(); ?>" class="logo-footer">
+            <img src="<?php ex_logo(); ?>" alt="Logo for <?php ex_brand(); ?>" />
+          </a>
           <p class="nav-address"><?php ex_contact('address'); ?></p>
           <p class="copyright">&copy; Copyright <?php echo date('Y') . ' '; ex_brand('legal'); ?></p>
         </div>
@@ -53,6 +55,9 @@
       </div>
     </footer>
   </div>
-  <?php wp_footer(); ?>
+  <?php
+    get_template_part('modules/nav', 'responsive');
+    wp_footer();
+  ?>
 </body>
 </html>

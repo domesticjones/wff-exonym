@@ -1,0 +1,207 @@
+.testimonials-wrap {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.testimonial {
+  font-size: 1.25em;
+  line-height: 1.25;
+  padding: 1.5rem 2rem;
+  background-color: $white;
+  box-shadow: inset 0 1rem 4rem transparentize($black, 0.8);
+
+  blockquote {
+    padding: 0;
+    font-style: italic;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.testimonial-data {
+  position: relative;
+  display: block;
+  padding-left: 2rem;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    height: 0.25rem;
+    width: 1rem;
+    background-color: $purple;
+  }
+
+  strong {
+    font-size: 0.75em;
+  }
+
+  em {
+    font-size: 0.65em;
+  }
+
+  strong,
+  em {
+    display: block;
+
+    &:empty {
+      display: none;
+    }
+  }
+}
+
+.club-years {
+  @include listStripped();
+
+  float: left;
+  width: 25%;
+  text-align: right;
+  padding: 0 3vw;
+  font-size: 2em;
+  border-right: 1px solid $white;
+  font-weight: $font-ultra-bold;
+  clear: left;
+}
+
+.club-data {
+  display: none;
+  float: left;
+  width: 37.5%;
+  padding: 0 3vw;
+
+  &-lifetime {
+    width: 75%;
+  }
+
+  h2 {
+    border-bottom: 1px solid $white;
+    font-size: 1.25rem;
+    text-transform: none;
+    color: $grey;
+    padding-bottom: 0.5rem;
+
+    span {
+      display: inline-block;
+      font-size: 0.75em;
+      font-style: italic;
+      font-weight: $font-light;
+      opacity: 0.65;
+    }
+  }
+
+  p {
+    font-size: 0.85rem;
+  }
+
+  a {
+    display: block;
+    font-size: 0.75rem;
+    font-style: italic;
+    margin-bottom: 4rem;
+  }
+
+  &.is-active {
+    display: block;
+  }
+}
+
+#club-search,
+#fallen-search {
+  @include grid(flex-end, center);
+  @include transition();
+
+  padding: 0;
+  margin: 0 0 1rem 0;
+  border-bottom: 2px solid $white;
+  border-radius: 0;
+
+  input {
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    text-align: right;
+    color: $grey;
+
+    &::placeholder {
+      color: $white;
+      opacity: 0.75;
+      font-style: italic;
+      font-size: 0.75rem;
+    }
+  }
+
+  &.is-active {
+    border-color: $orange;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url('../images/icon-magnify-white.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}
+
+.club-year {
+  cursor: hand;
+  cursor: pointer;
+
+  @include transition(all 150ms ease);
+
+  &:hover {
+    color: $grey;
+  }
+
+  &.is-active {
+    color: $orange;
+  }
+}
+
+@media (max-width: 960px) {
+  .club-data {
+    width: 75%;
+    float: right;
+  }
+}
+
+@media (max-width: 768px) {
+  .club-years {
+    @include grid(center, center, row, wrap);
+
+    width: 100%;
+    margin-bottom: 2rem;
+    border-right: none;
+    border-bottom: 2px solid $white;
+    text-align: center;
+    padding: 0;
+
+    #club-search {
+      width: 100%;
+      margin-bottom: 0;
+    }
+
+    .club-year {
+      padding: 1rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  .club-data {
+    float: none;
+    width: 100%;
+    padding: 0;
+
+    h2 {
+      border-color: $grey;
+    }
+  }
+}

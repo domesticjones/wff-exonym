@@ -16,12 +16,20 @@ function exmod_donate($type) {
   return $output;
 }
 
-function exmod_bg() {
+function exmod_bg($color = null) {
   $bg = get_sub_field('background');
   $image = $bg['image']['sizes']['jumbo'];
   $opacity = ($bg['opacity']) / 100;
+  if(empty($opacity)) {
+    $opacity = 1;
+  }
   $pos = $bg['position'];
-  $color = get_sub_field('color');
+  if(empty($pos)) {
+    $pos = array('x' => 'center', 'y' => 'center');
+  }
+  if($color == null) {
+    $color = get_sub_field('color');
+  }
   if($color == 'purple') {
     $image = asset_path('images/bg-purple.jpg');
   }
@@ -32,15 +40,20 @@ function exmod_bg() {
 }
 
 // Module Wrappers
-function exmod_wrap($position, $class = null, $name = null, $print = true) {
+function exmod_wrap($position, $class = null, $nameRaw = null, $color = null, $print = true) {
   $output = 'Invalid argument. Use *start* or *end*';
-  if(get_sub_field('module_name')) { $name = str_replace(' ', '-', strtolower(get_sub_field('module_name'))); }
-  $color = get_sub_field('color');
+  if($nameRaw == null) {
+    $nameRaw = get_sub_field('module_name');
+  }
+  $name = str_replace(' ', '-', strtolower($nameRaw));
+  if($color == null) {
+    $color = get_sub_field('color');
+  }
   $parallax = get_sub_field('background')['parallax'];
   if($parallax) { $parallax = ' animate-parallax animate-z-normal'; }
   if($color == 'purple') { $parallax = ' animate-parallax animate-z-subtle'; }
   if($position == 'start') {
-    $output = '<section id="' . $name . '" class="module animate-on-enter ' . $class . ' module-color-' . $color . $parallax . '">' . exmod_bg() . '<div class="wrap">';
+    $output = '<section id="' . $name . '" class="module animate-on-enter module-color-' . $color . $parallax . ' ' . $class . '">' . exmod_bg($color) . '<div class="wrap">';
   } elseif($position == 'end') {
     $output = exmod_cta() . '</div></section>';
   }
@@ -55,9 +68,15 @@ function exmod_wrap($position, $class = null, $name = null, $print = true) {
 get_template_part('modules/hero');
 
 // Call to Action
-function exmod_cta() {
-  $global = get_sub_field('global_ctas');
-  $type = $global['type'];
+function exmod_cta($type = null, $text = null) {
+  if($text == null) {
+    $global = get_sub_field('global_ctas');
+  } else {
+    $global = $text;
+  }
+  if($type == null) {
+    $type = $global['type'];
+  }
   $wrapStart = '<nav class="module-cta-wrap"><ul>';
   $wrapEnd = '</ul></nav>';
   $data = '';

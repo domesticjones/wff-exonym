@@ -1,0 +1,196 @@
+.contact-map {
+  width: 100%;
+  min-height: 50vh;
+}
+
+.contact-wrap {
+  @include grid();
+}
+
+.contact-data {
+  width: 40%;
+  padding: 0 3vw 3vw 3vw;
+
+  h2 {
+    font-size: 1.5rem;
+    text-transform: none;
+    margin-bottom: 2em;
+  }
+
+  nav {
+    margin-bottom: 3rem;
+  }
+
+  .nav-phone ul,
+  .nav-email ul {
+    @include listStripped();
+
+    li {
+      padding: 0 0 0 1.75rem;
+      position: relative;
+      margin-bottom: 1em;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.5rem;
+        display: block;
+        width: 1.15rem;
+        height: 1.15rem;
+        background-size: contain;
+      }
+    }
+
+    .data,
+    .name {
+      display: block;
+      line-height: 1.15;
+    }
+
+    .name {
+      font-size: 0.75rem;
+    }
+
+    .data {
+      font-size: 1.25em;
+      font-weight: $font-ultra-bold;
+
+      @include transition(all 333ms ease);
+    }
+  }
+
+  .nav-phone ul li::before {
+    background-image: url('../images/icon-phone.svg');
+  }
+
+  .nav-email ul li::before {
+    background-image: url('../images/icon-mail.svg');
+  }
+
+  a:hover .data {
+    color: $orange;
+  }
+
+  .nav-social {
+    margin-top: 2rem;
+
+    ul {
+      @include listStripped();
+      @include grid();
+
+      li {
+        margin: 0 0.5rem;
+
+        &:first-of-type { margin-left: 0; }
+        &:last-of-type { margin-right: 0; }
+      }
+
+      img {
+        height: 1.25rem;
+      }
+
+      span {
+        display: none;
+      }
+    }
+  }
+}
+
+.contact-form {
+  width: 60%;
+  padding: 3.5rem 3vw 3vw 3vw;
+
+  .form-row {
+    @include grid();
+  }
+
+  .form-element {
+    position: relative;
+    flex: 1;
+    padding: 0 1rem;
+    margin: 0 0 2rem 0;
+
+    br {
+      display: none;
+    }
+  }
+
+  input,
+  select,
+  textarea {
+    background-color: transparent;
+    border: 1px solid transparentize($grey, 1);
+    border-bottom: 2px solid $black;
+    margin: 0;
+    padding-left: 0;
+
+    @include transition();
+
+    &:focus,
+    &:active {
+      border: 1px solid $grey;
+      border-bottom: 2px solid $orange;
+      background-color: transparentize($grey, 0.9);
+      padding-left: 0.5rem;
+    }
+  }
+
+  label {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    margin: 0;
+    font-size: 0.75rem;
+    font-style: italic;
+    background-color: $white;
+
+    @include transition();
+
+    &.is-active {
+      top: -1rem;
+      opacity: 0.5;
+      background-color: transparent;
+    }
+  }
+
+  .form-send {
+    margin: 0 auto;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .contact-data,
+  .contact-form {
+    width: 50%;
+  }
+}
+
+@media (max-width: 960px) {
+  .contact-wrap {
+    @include grid(center, center, column);
+  }
+
+  .contact-data,
+  .contact-form {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-form .form-row {
+    @include grid(center, center, column);
+
+    .form-element {
+      width: 100%;
+      padding: 0;
+      margin-bottom: 2rem;
+
+      label {
+        left: 0;
+      }
+    }
+  }
+}

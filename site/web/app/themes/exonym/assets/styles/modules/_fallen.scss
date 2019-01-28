@@ -1,0 +1,147 @@
+.fallen-wrap {
+  @include listStripped();
+  @include grid(center, stretch, row, wrap);
+
+  background-color: $black;
+}
+
+.fallen-image {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center center;
+  opacity: 0.5;
+  transform: scale(1.05);
+
+  @include transition();
+
+  span {
+    display: none;
+  }
+}
+
+.fallen-data {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: $white;
+
+  h2 {
+    font-size: 1.15rem;
+    text-transform: none;
+  }
+
+  p {
+    font-size: 0.85rem;
+    font-style: italic;
+    opacity: 0.5;
+    padding-bottom: 0;
+
+    @include transition();
+  }
+}
+
+li.fallen-single,
+li.fallen-submit {
+  @include grid(flex-end, center, column);
+
+  position: relative;
+  width: 25%;
+  min-height: 25vw;
+  background-color: $black-jet;
+  overflow: hidden;
+  display: none;
+  padding: 2rem;
+
+  &:hover {
+    .fallen-image {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .fallen-data p {
+      opacity: 0.7;
+    }
+  }
+
+  &.is-active {
+    display: flex;
+  }
+}
+
+#fallen-search {
+  width: 100%;
+
+  input {
+    text-align: left;
+    width: 400px;
+    padding-left: 0;
+  }
+}
+
+/* stylelint-disable */
+
+li.fallen-submit {
+  @include grid(center, center, column);
+
+  opacity: 1;
+  text-align: center;
+
+  p {
+    margin: 0;
+    padding-bottom: 1rem;
+    font-size: 1.15rem;
+  }
+
+  a {
+    @include transition();
+
+    color: $grey;
+    font-weight: $font-ultra-bold;
+    font-size: 1.25rem;
+
+    &:hover {
+      color: $orange;
+    }
+  }
+
+  ul {
+    @include listStripped();
+
+    margin: auto;
+
+    .name {
+      display: none;
+    }
+  }
+}
+
+/* stylelint-enable */
+
+@media (max-width: 1400px) {
+  li.fallen-single,
+  li.fallen-submit {
+    width: 33.3333%;
+    min-height: 33.3333vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  li.fallen-single,
+  li.fallen-submit {
+    width: 50%;
+    min-height: 50vw;
+  }
+}
+
+@media (max-width: 600px) {
+  li.fallen-single,
+  li.fallen-submit {
+    width: 100%;
+    min-height: 100vw;
+  }
+}

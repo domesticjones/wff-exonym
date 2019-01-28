@@ -85,16 +85,31 @@ body {
   Responsive Breakpoints
   ---------------------------------------------------------------------- */
 @media (max-width: 1024px) {
-  .header-top {
+  #header {
     padding: 1rem;
+
+    .logo-header {
+      height: 3rem !important;
+    }
+  }
+
+  body {
+    padding-top: 5rem;
   }
 
   .nav-header,
-  .header-top .nav-social {
+  #header .nav-social,
+  #header .button {
     display: none;
   }
 
   #responsive-nav-toggle {
     display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  #header .logo-header {
+    height: 4rem;
   }
 }

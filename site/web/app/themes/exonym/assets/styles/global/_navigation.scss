@@ -133,12 +133,12 @@
     & > a {
       position: relative;
       display: block;
-      padding: 1.5rem 0.5rem;
+      padding: 1rem 0.5rem;
 
       &::after {
         content: '';
         position: absolute;
-        bottom: 1rem;
+        bottom: 0.5rem;
         left: 0.25rem;
         display: block;
         width: calc(100% - 0.5rem);
@@ -167,7 +167,80 @@
 }
 
 #responsive-nav-toggle {
-  @include hamburgerMenu(9, $black, 0.75);
+  @include hamburgerMenu(7, $black, 0.6);
+
+  &.is-active .line {
+    background-color: $orange;
+  }
+}
+
+/* Responsive Menu*/
+body.nav-active {
+  overflow: hidden;
+
+  #container {
+    transform: translateX(-80vw);
+  }
+
+  #nav-responsive {
+    transform: translateX(0);
+  }
+}
+
+#nav-responsive {
+  position: fixed;
+  padding: 5.5rem 1rem 1rem 1rem;
+  width: 80vw;
+  height: 100vh;
+  right: 0;
+  top: 0;
+  background-color: $grey;
+  color: $black;
+  z-index: 0;
+  transform: translateX(80vw);
+  box-shadow: inset 3rem 0 10rem transparentize($black, 0.75);
+  font-size: 0.85rem;
+
+  @include transition();
+
+  .menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    & > li:last-of-type a {
+      border-bottom: none;
+    }
+
+    a {
+      display: block;
+      padding: 0.5em 0;
+      border-bottom: 1px dotted $black;
+    }
+  }
+
+  .sub-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 0 0 1rem;
+    font-size: 0.85em;
+
+    a {
+      border-color: transparentize($black, 0.75);
+    }
+  }
+
+  a.button {
+    display: inline-block;
+    width: auto;
+    margin-top: 1rem;
+  }
 }
 
 /* stylelint-enable */
+
+@media (max-width: 1200px) {
+  .nav-header .parent {
+    font-size: 0.75rem;
+  }
+}

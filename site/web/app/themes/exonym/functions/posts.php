@@ -96,3 +96,27 @@ function ex_post_nav() {
 	</nav>
 	<?php
 }
+
+add_action( 'pre_get_posts', 'sk_change_portfolio_posts_order' );
+/**
+ * Order entries by title on Portfolio CPT archive.
+ *
+ * @link http://www.billerickson.net/customize-the-wordpress-query/
+ * @param object $query data
+ *
+ */
+function sk_change_portfolio_posts_order( $query ) {
+  if ( $query->is_main_query() && !is_admin() && is_tax('resource_categories') ) {
+    $query->set( 'order', 'ASC' );
+    $query->set( 'orderby', 'title' );
+  }
+  if ( $query->is_main_query() && !is_admin() && is_post_type_archive('52club') ) {
+    $query->set( 'posts_per_page', -1 );
+  }
+  if ( $query->is_main_query() && !is_admin() && is_post_type_archive('fallen') ) {
+    $query->set( 'posts_per_page', -1 );
+    $query->set( 'meta_key', 'date' );
+    $query->set( 'orderby', 'meta_key' );
+    $query->set( 'order', 'ASC' );
+  }
+}

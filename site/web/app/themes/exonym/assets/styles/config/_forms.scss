@@ -8,8 +8,8 @@ $fh-font-size: $font-size !default;
 $fh-font-color: $black !default;
 
 // Borders
-$fh-border-radius: 3px !default;
-$fh-border-width: 1px !default;
+$fh-border-radius: 0 !default;
+$fh-border-width: 0 !default;
 $fh-border-style: solid !default;
 $fh-border-color: $black !default;
 
@@ -237,7 +237,7 @@ input[type="image"] {
   padding: ($fh-input-height / 2.5) ($fh-input-height / 2);
   cursor: pointer;
   color: $fh-button-font-color !important;
-  font-weight: $font-bold;
+  font-weight: $font-normal;
   appearance: none;
   border-radius: $fh-border-radius;
   border: none;
@@ -288,4 +288,5 @@ input[type="submit"]:focus,
 input[type="reset"]:focus {
   background-color: $fh-button-hover-bg-color;
   color: $fh-button-hover-font-color;
+  box-shadow: 0 0.25rem 0.5rem transparentize($black, 0.8);
 }

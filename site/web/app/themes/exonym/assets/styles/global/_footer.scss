@@ -10,6 +10,7 @@
 
   .footer-signup-content {
     text-align: center;
+    padding-bottom: 0;
   }
 
   #gdpr_text,
@@ -36,6 +37,7 @@
     color: $white;
     border-radius: 0;
     margin-bottom: 0;
+    box-shadow: none;
 
     @include transition();
 
@@ -55,6 +57,7 @@
   div.ctct-form-embed form.ctct-form-custom div.ctct-form-field {
     margin: 0 1rem;
     position: relative;
+    box-shadow: none;
   }
 
   .ctct-form-embed.form_0 .ctct-form-custom .ctct-form-button {
@@ -72,6 +75,7 @@
     &:active {
       background-color: $white;
       color: $purple !important;
+      border: 2px solid $white;
     }
   }
 
@@ -145,6 +149,16 @@
     &:last-of-type {
       margin-left: auto;
       padding-right: 0;
+    }
+  }
+
+  .logo-footer {
+    display: block;
+    width: 100%;
+    margin-bottom: auto;
+
+    img {
+      display: block;
     }
   }
 
@@ -293,8 +307,7 @@
 
       width: 100%;
       max-width: 100%;
-      padding: 2rem 0 !important;
-      display: none;
+      padding: 0 !important;
 
       &:first-of-type {
         display: flex;
@@ -305,9 +318,12 @@
       margin: 0 auto;
       max-width: 10rem;
     }
-  }
 
-  .footer-donate {
-    display: none;
+    .nav-phone,
+    .nav-email,
+    .footer-donate,
+    .nav-footer {
+      display: none;
+    }
   }
 }

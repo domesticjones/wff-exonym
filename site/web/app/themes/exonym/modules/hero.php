@@ -15,21 +15,28 @@ function exmod_hero($style = 'None', $text = null, $media = null) {
 <header class="module-hero animate-parallax animate-z-subtle <?php echo 'hero-height-' . $height; ?>">
   <div class="module-bg<?php if($dim) { echo ' module-bg-dim'; } ?>">
     <?php
-      if($style == 'Photos') {
+      if($style == 'Photos' || (wp_is_mobile() && $style == 'Video')) {
         $picMedia = $media;
-        if($media == null) { $picMedia = get_field('default_hero_image', 'options'); }
+        if($media == null) { $picMedia = get_field('default_hero_images', 'options'); }
         $picCustom = get_field('hero_images');
         if(!empty($picCustom) || $noDefault) { $picMedia = $picCustom; }
         if($picMedia) {
         ?>
           <ul class="hero-photos">
-            <?php foreach($picMedia as $img): ?>
-              <li class="hero-single"><div class="hero-image" style="background-image: url(<?php echo $img['sizes']['jumbo']; ?>)"></div></li>
+            <?php
+              foreach($picMedia as $img):
+                if(is_array($img)) {
+                  $image = $img['sizes']['jumbo'];
+                } else {
+                  $image = $img;
+                }
+            ?>
+              <li class="hero-single"><div class="hero-image" style="background-image: url(<?php echo $image; ?>)"></div></li>
             <?php endforeach; ?>
           </ul>
         <?php
         }
-      } elseif($style == 'Video') {
+      } elseif($style == 'Video' || !wp_is_mobile()) {
         $vidMedia = $media;
         if($media == null) { $vidMedia = get_field('default_hero_video', 'options'); }
         $vidMedia = get_field('default_hero_video', 'options');
@@ -79,6 +86,9 @@ function exmod_hero($style = 'None', $text = null, $media = null) {
     if($ctaCustom) { foreach($ctaCustom as $ctaCust) {
       $data .= '<li><a href="' . $ctaCust['link']['url'] . '" target="' . $ctaCust['link']['target'] . '" class="animate-on-enter animate-on-leave">' . $ctaCust['link']['title'] . '</a></li>';
     }}
+    if(is_post_type_archive('fallen')) {
+      $data = '<li><form id="fallen-search" method="GET"><input type="search" placeholder="Type here to search for a loved one" /></form></li>';
+    }
     $output = $wrapStart . $data . $wrapEnd;
     if($data) {
       echo $output;

@@ -137,13 +137,17 @@
     .subsection-single {
       @include grid(center, center, column);
 
-      margin: 0 0 6vw 0;
+      margin: 0 0 2rem 0;
     }
 
     .subsection-head,
     .subsection-data {
       width: 100%;
       padding: 0;
+    }
+
+    .subsection-head {
+      margin-bottom: 1rem;
     }
   }
 }

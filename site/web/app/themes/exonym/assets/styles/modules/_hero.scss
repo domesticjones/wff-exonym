@@ -19,6 +19,10 @@
   &-l { min-height: 80vh; }
 }
 
+.archive .hero-height-m {
+  min-height: 1px;
+}
+
 .module-bg-dim {
   opacity: 0.66;
 }
@@ -70,7 +74,21 @@
 @media (max-width: 1024px) {
   .hero-text-size {
     &-s { font-size: 1rem; }
-    &-m { font-size: 2rem; }
-    &-l { font-size: 3rem; }
+    &-m { font-size: 1.75rem; }
+    &-l { font-size: 2.5rem; }
+  }
+
+  .module-hero {
+    min-height: 25vh !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-text {
+    letter-spacing: 0.25ex;
+  }
+
+  .module-cta-wrap {
+    font-size: 0.75em;
   }
 }
