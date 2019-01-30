@@ -2,6 +2,8 @@
   Global Website Footer
   ---------------------------------------------------------------------- */
 .footer-signup {
+  padding: 3rem 3vw !important;
+
   h2 {
     text-align: center;
     text-transform: none;
@@ -109,7 +111,7 @@
     margin: 0;
     color: $white;
     font-weight: $font-light;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     letter-spacing: 0.025em;
     font-family: $font-default;
     text-align: center;
